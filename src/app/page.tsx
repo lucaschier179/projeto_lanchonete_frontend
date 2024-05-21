@@ -19,13 +19,13 @@ export default function Home() {
       </p>
       <div className="flex justify-end items-center gap-4">
         <Link
-          href="/cadastroCliente"
+          href="/login"
           className="rounded cursor-pointer border-none w-60 h-16 flex justify-center items-center transition-all text-2xl text-center font-bold text-[#E8E8E8] bg-[#219100]"
         >
           Login
         </Link>
         <Link
-          href="/cadastroColaborador"
+          href="/register"
           className="rounded cursor-pointer border-none w-60 h-16 flex justify-center items-center transition-all text-2xl text-center font-bold text-[#E8E8E8] bg-[#219100]"
         >
           Cadastro
