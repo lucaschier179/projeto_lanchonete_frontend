@@ -21,7 +21,7 @@ export default function RootLayout({
     >
       <body className="min-h-screen font-sans antialiased bg-white">
         <link rel="icon" href="/images/logo_prato_rapido.png" sizes="any" />
-        {children}  
+        {children}
       </body>
     </html>
   );

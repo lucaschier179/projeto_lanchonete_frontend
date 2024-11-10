@@ -1,5 +1,5 @@
 import Image from "next/image";
-import FormLogin from "../components/FormLogin";
+import FormLogin from "../components/ClientComponents/Forms/FormLogin";
 
 export default function Login() {
   return (
