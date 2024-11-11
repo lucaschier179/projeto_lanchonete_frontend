@@ -1,5 +1,5 @@
+import FormRegister from "@/components/ClientComponents/Forms/FormRegister";
 import Image from "next/image";
-import FormRegister from "../components/ClientComponents/Forms/FormRegister";
 
 export default function Register() {
   return (
