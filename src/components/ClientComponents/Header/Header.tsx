@@ -6,18 +6,21 @@ import Link from "next/link";
 export default function Header() {
   return (
     <>
-      <Navbar className="shadow-md shadow-neutral-500">
+      <Navbar
+        isBlurred={false}
+        className="shadow-md shadow-neutral-500"
+      >
         <NavbarContent className="hidden sm:flex gap-12">
-        <NavbarBrand
-          className="flex justify-end"
-        >
-          <Image
-            src={"/images/logo_prato_rapido.png"}
-            alt="logo prato rápido"
-            width={80}
-            height={80}
-          />
-        </NavbarBrand>
+          <NavbarBrand
+            className="flex justify-end"
+          >
+            <Image
+              src={"/images/logo_prato_rapido.png"}
+              alt="logo prato rápido"
+              width={80}
+              height={80}
+            />
+          </NavbarBrand>
           <NavbarItem isActive>
             <Link
               href="/"

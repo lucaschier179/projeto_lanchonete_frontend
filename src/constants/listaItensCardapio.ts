@@ -57,4 +57,60 @@ export const LISTA_ITENS_CARDAPIO: IListaItensCardapioData[] = [
     preco: 60.00,
     imagem: "/images/pizza_pepperoni.jpg"
   },
+  {
+    id: 9,
+    nome: "Pastel de carne",
+    ingredientes: "massa, carne moída, cebola, salsinha, alho, ovo",
+    preco: 10.00,
+    imagem: "/images/pastel_carne.jpg"
+  },
+  {
+    id: 10,
+    nome: "Hambúrguer",
+    ingredientes: "pão, hambúrguer, queijo, alface, tomate e molho especial",
+    preco: 30.00,
+    imagem: "/images/hamburguer.webp"
+  },
+  {
+    id: 11,
+    nome: "Coxinha",
+    ingredientes: "massa, frango, catupiry",
+    preco: 10.00,
+    imagem: "/images/coxinha.webp"
+  },
+  {
+    id: 12,
+    nome: "Pizza Pepperoni",
+    ingredientes: "massa, queijo, pepperoni, ",
+    preco: 60.00,
+    imagem: "/images/pizza_pepperoni.jpg"
+  },
+  {
+    id: 13,
+    nome: "Pastel de carne",
+    ingredientes: "massa, carne moída, cebola, salsinha, alho, ovo",
+    preco: 10.00,
+    imagem: "/images/pastel_carne.jpg"
+  },
+  {
+    id: 14,
+    nome: "Hambúrguer",
+    ingredientes: "pão, hambúrguer, queijo, alface, tomate e molho especial",
+    preco: 30.00,
+    imagem: "/images/hamburguer.webp"
+  },
+  {
+    id: 15,
+    nome: "Coxinha",
+    ingredientes: "massa, frango, catupiry",
+    preco: 10.00,
+    imagem: "/images/coxinha.webp"
+  },
+  {
+    id: 16,
+    nome: "Pizza Pepperoni",
+    ingredientes: "massa, queijo, pepperoni, ",
+    preco: 60.00,
+    imagem: "/images/pizza_pepperoni.jpg"
+  },
 ]

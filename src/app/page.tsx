@@ -1,6 +1,7 @@
 import Footer from "@/components/ClientComponents/Footer/Footer";
 import Header from "@/components/ClientComponents/Header/Header";
 import CardItem from "@/components/ServerComponents/CardItem";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { LISTA_ITENS_CARDAPIO } from "@/constants/listaItensCardapio";
 import { Button } from "@nextui-org/button";
 import Image from "next/image";
@@ -17,7 +18,7 @@ export default function Home() {
           height={262}
           className="object-cover"
         />
-        <section className="flex flex-col gap-4">
+        <section className="flex flex-col gap-4 w-full">
           <div className="flex items-center gap-5">
             <p className="text-2xl">
               Cardápio
@@ -26,20 +27,30 @@ export default function Home() {
               Filtro aqui
             </p>
           </div>
-          <div className="flex gap-2">
-            {LISTA_ITENS_CARDAPIO.map((item) => {
-              return (
-                <CardItem
-                  key={item.id}
-                  id={item.id}
-                  imagem={item.imagem}
-                  nome={item.nome}
-                  preco={item.preco}
-                  ingredientes={item.ingredientes}
-                />
-              )
-            })}
-          </div>
+          <Carousel
+            className="mx-10"
+          >
+            <CarouselContent>
+              {LISTA_ITENS_CARDAPIO.map((item) => {
+                return (
+                  <CarouselItem
+                    key={item.id}
+                    className="basis-[15%]"
+                  >
+                    <CardItem
+                      id={item.id}
+                      imagem={item.imagem}
+                      nome={item.nome}
+                      preco={item.preco}
+                      ingredientes={item.ingredientes}
+                    />
+                  </CarouselItem>
+                )
+              })}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
         </section>
         <section className="flex flex-col lg:flex-row items-center lg:items-start gap-8 p-8">
           <div className="text-center lg:text-left lg:w-1/3">
