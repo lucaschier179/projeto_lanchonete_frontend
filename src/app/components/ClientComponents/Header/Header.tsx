@@ -9,7 +9,6 @@ export default function Header() {
       <Navbar className="shadow-md shadow-neutral-500">
         <NavbarContent className="hidden sm:flex gap-12">
         <NavbarBrand
-        
           className="flex justify-end"
         >
           <Image
