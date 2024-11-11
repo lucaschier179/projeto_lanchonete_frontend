@@ -1,14 +1,15 @@
-import Image from "next/image";
-import Footer from "./components/ClientComponents/Footer/Footer";
-import Header from "./components/ClientComponents/Header/Header";
+import Footer from "@/components/ClientComponents/Footer/Footer";
+import Header from "@/components/ClientComponents/Header/Header";
+import CardItem from "@/components/ServerComponents/CardItem";
+import { LISTA_ITENS_CARDAPIO } from "@/constants/listaItensCardapio";
 import { Button } from "@nextui-org/button";
-
+import Image from "next/image";
 
 export default function Home() {
   return (
     <>
       <Header />
-      <main className="flex flex-col items-center mt-20 mx-10">
+      <main className="flex flex-col items-center my-20 mx-10 gap-10">
         <Image
           src={"/images/banner_home.png"}
           alt="banner home"
@@ -16,16 +17,40 @@ export default function Home() {
           height={262}
           className="object-cover"
         />
+        <section className="flex flex-col gap-4">
+          <div className="flex items-center gap-5">
+            <p className="text-2xl">
+              Cardápio
+            </p>
+            <p>
+              Filtro aqui
+            </p>
+          </div>
+          <div className="flex gap-2">
+            {LISTA_ITENS_CARDAPIO.map((item) => {
+              return (
+                <CardItem
+                  key={item.id}
+                  id={item.id}
+                  imagem={item.imagem}
+                  nome={item.nome}
+                  preco={item.preco}
+                  ingredientes={item.ingredientes}
+                />
+              )
+            })}
+          </div>
+        </section>
         <section className="flex flex-col lg:flex-row items-center lg:items-start gap-8 p-8">
           <div className="text-center lg:text-left lg:w-1/3">
             <p className="text-2xl font-semibold mb-2">Você tem fome do quê?</p>
             <p className="text-gray-600 mb-4">
               Acesse a opção de filtros para pedir aquele pratão!
             </p>
-            <Button 
-            variant="solid"
-            radius="sm"
-            className="px-4 py-2 bg-orange-500 text-white font-semibold hover:bg-orange-600 transition"
+            <Button
+              variant="solid"
+              radius="sm"
+              className="px-4 py-2 bg-orange-500 text-white font-semibold hover:bg-orange-600 transition"
             >
               Saiba mais
             </Button>
