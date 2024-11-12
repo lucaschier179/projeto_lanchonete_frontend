@@ -50,7 +50,7 @@ export default function Header() {
             className="hidden lg:flex font-semibold text-orange-600"
           >
             <Link
-              href="/registro"
+              href="/register"
             >
               Criar conta
             </Link>

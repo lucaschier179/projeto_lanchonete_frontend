@@ -1,5 +1,8 @@
 "use client";
+import { api } from "@/services/api";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { AxiosError } from "axios";
+import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
@@ -24,6 +27,7 @@ const registerFormSchema = z.object({
 })
 
 export default function FormRegister() {
+  const router = useRouter()
   const {
     register,
     handleSubmit,
@@ -52,7 +56,15 @@ export default function FormRegister() {
 
   async function handleRegister(data: IRegisterData) {
     data.cpf = data.cpf.replace(/[.-]/g, "")
-    console.log(data)
+    const responseAPI = await api.post("/user/register", data)
+    .then(res => {
+      console.log("Registrado com sucesso!")
+    })
+    .catch((error: AxiosError) => {
+      console.error(error?.response?.data)
+    })
+    router.push("/login")
+    // console.log(data)
   }
 
   return (

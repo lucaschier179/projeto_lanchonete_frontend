@@ -1,22 +1,26 @@
 "use client";
+import { api } from "@/services/api";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { AxiosError } from "axios";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
 export interface ILoginData {
   email: string;
-  senha: string;
+  password: string;
 }
 
 type loginFormData = z.infer<typeof loginFormSchema>
 
 const loginFormSchema = z.object({
   email: z.string().min(1, "O campo email é obrigatório!").email("Email inválido, digite um email válido!"),
-  senha: z.string().min(1, "O campo senha é obrigatório!").min(8, "Senha insuficiente!"),
+  password: z.string().min(1, "O campo senha é obrigatório!").min(8, "Senha insuficiente!"),
 })
 
 export default function FormLogin() {
+  const router = useRouter()
   const {
     register,
     handleSubmit,
@@ -27,12 +31,20 @@ export default function FormLogin() {
     mode: "all",
     defaultValues: {
       email: "",
-      senha: ""
+      password: ""
     }
   })
 
   async function handleLogin(data: ILoginData) {
-    console.log(data)
+    const responseAPI = await api.post("/user/login", data)
+    .then(res => {
+      console.log("Logado com sucesso. Seja bem vindo!")
+    })
+    .catch((error: AxiosError) => {
+      console.error(error?.response?.data)
+    })
+    router.push("/")
+    // console.log(data)
   }
 
   return (
@@ -72,16 +84,16 @@ export default function FormLogin() {
               </p>
             }
             <input
-              {...register("senha")}
+              {...register("password")}
               type="password"
-              name="senha"
+              name="password"
               placeholder=" Senha..."
               className="input-text"
               required
             />
-            {errors.senha &&
+            {errors.password &&
               <p className="text-sm text-red-600">
-                  {errors.senha.message}
+                  {errors.password.message}
               </p>
             }
             <div className="div-button">

@@ -23,14 +23,11 @@ export default function Home() {
             <p className="text-2xl">
               Cardápio
             </p>
-            <p>
-              Filtro aqui
-            </p>
           </div>
           <Carousel
-            className="mx-10"
+            className="mx-6"
           >
-            <CarouselContent>
+            <CarouselContent className="p-2">
               {LISTA_ITENS_CARDAPIO.map((item) => {
                 return (
                   <CarouselItem
